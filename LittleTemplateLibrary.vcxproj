@@ -130,6 +130,7 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Array.h" />
     <ClInclude Include="src\List.h" />
     <ClInclude Include="src\Queue.h" />
     <ClInclude Include="src\Stack.h" />

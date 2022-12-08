@@ -14,26 +14,30 @@ namespace Ltl
 		//Destructors
 		~Queue() {}
 
-		//Access Functions
+		#pragma region Access Functions
 		T top();
 		T bottom();
+		#pragma endregion Accesss the elements of the container class
 
-		//Member Functions
+		#pragma region Member Functions
 		int size();
 		bool empty();
+		#pragma endregion 
 
-		//Modifier Functions
+		#pragma region Modifier Functions
 		void pop();
 		void emplace(const T& value);
 		void push(const T& value);
 		void swap();
+		#pragma endregion Modify the elements of the container
 
-		//Operator Overloading
+		#pragma region Operator Overload
 		bool operator==(Queue<T>& s);
 		bool operator<=(Queue<T>& s);
 		bool operator>=(Queue<T>& s);
 		bool operator<(Queue<T>& s);
 		bool operator>(Queue<T>& s);
 		bool operator!=(Queue<T>& s);
+		#pragma endregion Overloading Functions
 	};
 }

@@ -2,12 +2,14 @@
 
 namespace Ltl
 {
+	template<class T>
 	class Stack
 	{
 	public:
 		//Constructors
-		Stack(){}
-		void operator=(Stack s);
+		Stack<T>(){}
+		Stack<T>(const int& size);
+		void operator=(const Stack<T>& s);
 
 		//Destructors
 		~Stack(){}
@@ -22,16 +24,16 @@ namespace Ltl
 
 		//Modifier Functions
 		void pop();
-		void emplace();
+		void emplace(const T& value);
 		void push();
 		void swap();
 
 		//Operator Overloading
-		bool operator==(Stack s);
-		bool operator<=(Stack s);
-		bool operator>=(Stack s);
-		bool operator<(Stack s);
-		bool operator>(Stack s);
-		bool operator!=(Stack s);
+		bool operator==(Stack<T>& s);
+		bool operator<=(Stack<T>& s);
+		bool operator>=(Stack<T>& s);
+		bool operator<(Stack<T>& s);
+		bool operator>(Stack<T>& s);
+		bool operator!=(Stack<T>& s);
 	};
 }

@@ -2,39 +2,48 @@
 
 namespace Ltl
 {
+	template <class T>
 	class List
 	{
 	public:
 		//Constructor
-		List(){}
+		List<T>(){}
+		List<T>(const int& size);
+		void operator=(const List<T>& s);
 
 		//Destructor
-		~List(){}
+		~List();
 
 		//Access Functions
-		void front();
-		void back();
+		T front();
+		T back();
 
 		//Member Functions
 		int size();
 		bool empty();
 
 		//Modifier Functions
-		void insert();
+		void insert(const T& value, const int& position);
 		void clear();
-		void resize();
+		void resize(const int& size);
 		void swap();
-		void emplace_back();
-		void emplace_front();
-		void push_back();
-		void push_front();
+		void emplace_back(const T& value);
+		void emplace_front(const T& value);
+		void push_back(const T& value);
+		void push_front(const T& value);
+		void pop_back();
+		void pop_front();
+
+		//Operations
+		List<T> merge(List<T> s);
+		void sort();
 
 		//Operator Overloading
-		bool operator==(List s);
-		bool operator<=(List s);
-		bool operator>=(List s);
-		bool operator<(List s);
-		bool operator>(List s);
-		bool operator!=(List s);
+		bool operator==(List<T>& s);
+		bool operator<=(List<T>& s);
+		bool operator>=(List<T>& s);
+		bool operator<(List<T>& s);
+		bool operator>(List<T>& s);
+		bool operator!=(List<T>& s);
 	};
 }

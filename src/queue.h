@@ -2,19 +2,21 @@
 
 namespace Ltl
 {
+	template<class T>
 	class Queue
 	{
 	public:
 		//Constructors
 		Queue() {}
-		void operator=(Queue s);
+		Queue(const int& size);
+		void operator=(const Queue& s);
 
 		//Destructors
 		~Queue() {}
 
 		//Access Functions
-		void top();
-		void bottom();
+		T top();
+		T bottom();
 
 		//Member Functions
 		int size();
@@ -22,16 +24,16 @@ namespace Ltl
 
 		//Modifier Functions
 		void pop();
-		void emplace();
-		void push();
+		void emplace(const T& value);
+		void push(const T& value);
 		void swap();
 
 		//Operator Overloading
-		bool operator==(Queue s);
-		bool operator<=(Queue s);
-		bool operator>=(Queue s);
-		bool operator<(Queue s);
-		bool operator>(Queue s);
-		bool operator!=(Queue s);
+		bool operator==(Queue<T>& s);
+		bool operator<=(Queue<T>& s);
+		bool operator>=(Queue<T>& s);
+		bool operator<(Queue<T>& s);
+		bool operator>(Queue<T>& s);
+		bool operator!=(Queue<T>& s);
 	};
 }

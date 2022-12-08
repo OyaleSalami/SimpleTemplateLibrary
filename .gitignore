@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+/.vs/LittleTemplateLibrary/v17
+/.vs/LittleTemplateLibrary/FileContentIndex

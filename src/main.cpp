@@ -1,7 +1,11 @@
 #include <iostream>
+#include "Stack.h"
+#include "Stack.cpp"
 
 int main()
 {
+	Ltl::Stack<int> stack(20);
+
 	std::cout << "Welcome to the Little Template Library! \n" << std::endl;
 	
 	std::cout << "Select an option" << std::endl;
@@ -13,7 +17,8 @@ int main()
 	std::cout << "6. Tree" << std::endl;
 
 
-	int input =  std::cin.get();
+	int input;
+	std::cin >> input;
 
 	switch (input)
 	{
@@ -32,5 +37,6 @@ int main()
 		break;
 	}
 
-	std::cin.get();
+	
+	std::cin >> input;
 }

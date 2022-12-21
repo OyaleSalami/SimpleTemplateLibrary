@@ -12,8 +12,8 @@ namespace Ltl
 		Stack<T>(const int& size);
 		void operator=(const Stack<T>& s);
 
-		//Destructors
-		~Stack(){}
+		//Destructor
+		~Stack();
 
 		#pragma region Access Functions
 		/// <returns> The top element of the stack</returns>
@@ -56,13 +56,13 @@ namespace Ltl
 		#pragma endregion Overloading functions
 
 	private:
-		/// <summary>The underlying array(For handling memory)</summary>
-		T body[];
+		/// <summary>Pointer to the momory(For handling memory)</summary>
+		T* body;
 
-		/// <summary>Size of the array(Max No of elements the array can hold)</summary>
+		/// <summary>Size of the stack(Max elements the stack can hold)</summary>
 		int maxSize;
 
-		/// <summary>Current Size of the stack</summary>
+		/// <summary>Current size of the stack</summary>
 		int len; 
 	};
 	

@@ -3,17 +3,26 @@
 namespace Ltl
 {
 	template<class T>
-	Stack<T>::Stack(const int& size)
+	Ltl::Stack<T>::~Stack()
 	{
-		body = T[size]; //Create an array of max [size] elements
+		len = 0;
+		maxSize = 0;
+		delete(body);
+	}
+
+	template<class T>
+	inline Stack<T>::Stack(const int& size)
+	{
+		/* body = T[size]; //TODO: Assign from the heap */
+
 		maxSize = size; //Set the max size
-		len = 0 //No elements in the stack(Hence 0)
+		len = 0; //No elements in the stack(Hence 0)
 	}
 
 	template<class T>
 	void Ltl::Stack<T>::operator=(const Stack<T>& s)
 	{
-		//TODO: copy a stack to another ?? or simply set the pointer to point the other stack
+		//TODO: copy a stack to another ?? or simply set the pointer to point the other stack??
 	}
 
 	template<class T>
@@ -84,7 +93,7 @@ namespace Ltl
 		//Bounds Checking
 		if (len + 1 > maxSize)
 		{
-			//Throw an Exception
+			//Throw an Exception (Stack Overflow Exception Literally)
 		}
 		else
 		{
@@ -180,6 +189,6 @@ namespace Ltl
 			return false;
 		}
 
-		//TODO: This will be fixed when the "==" operator is fixed
+		//TODO: This will be fixed(work properly) when the "==" operator is fixed
 	}
 }

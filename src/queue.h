@@ -12,22 +12,29 @@ namespace Ltl
 		void operator=(const Queue& s);
 
 		//Destructors
-		~Queue() {}
+		~Queue();
 
 		#pragma region Access Functions
+		/// <returns>First element in the stack</returns>
 		T top();
+
+		/// <returns>Last element in the stack</returns>
 		T bottom();
 		#pragma endregion Accesss the elements of the container class
 
 		#pragma region Member Functions
+		/// <returns>Number of elements in the queue</returns>
 		int size();
+
+		/// <returns>True if stack is empty, false otherwise</returns>
 		bool empty();
 		#pragma endregion 
 
 		#pragma region Modifier Functions
-		void pop();
-		void emplace(const T& value);
-		void push(const T& value);
+		/// <returns></returns>
+		T pop();
+		void push(const T value);
+		void emplace(const T value);
 		void swap();
 		#pragma endregion Modify the elements of the container
 
@@ -39,5 +46,15 @@ namespace Ltl
 		bool operator>(Queue<T>& s);
 		bool operator!=(Queue<T>& s);
 		#pragma endregion Overloading Functions
+
+	private:
+		/// <summary>Pointer to the memory address(For handling memory)</summary>
+		T* body;
+
+		/// <summary>Size of the queue(Max elements the queue can hold)</summary>
+		int maxSize;
+
+		/// <summary>Current size of the queue</summary>
+		int len;
 	};
 }

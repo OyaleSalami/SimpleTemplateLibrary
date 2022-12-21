@@ -13,5 +13,24 @@ int main()
 	std::cout << "6. Tree" << std::endl;
 
 
+	int input =  std::cin.get();
+
+	switch (input)
+	{
+	case 0:
+		break;
+	case 1:
+		std::cout << "List" << std::endl;
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+
+	default:
+		std::cout << "Error..." << std::endl;
+		break;
+	}
+
 	std::cin.get();
 }

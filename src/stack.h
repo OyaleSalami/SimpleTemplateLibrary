@@ -2,6 +2,8 @@
 
 namespace Ltl
 {
+	//Stack: LIFO(Last In First Out)
+
 	/// <typeparam name="T">Type of the container</typeparam>
 	template<class T>
 	class Stack
@@ -27,8 +29,14 @@ namespace Ltl
 		/// <returns>Number of elements in the container</returns>
 		int size();
 
+		/// <returns>Max size of the container</returns>
+		int MaxSize();
+
 		/// <returns>True if the stack is empty, false otherwise</returns>
 		bool empty();
+
+		/// <returns>A pointer to the underlying memory location</returns>
+		T* getPtr();
 		#pragma endregion 
 
 		#pragma region Modifier Functions
@@ -38,15 +46,14 @@ namespace Ltl
 		/// <summary>Inserts an element in-place at the top</summary>
 		void push(const T value);
 
-		/// <summary> Constructs an element in-place at the top</summary>
-		void emplace(const T value);
-
 		/// <summary>Swaps elements</summary>
-		void swap();
+		/// <param name="id1">Index of the first element</param>
+		/// <param name="id2">Index of the second element</param>
+		void swap(const int id1, const int id2);
 		#pragma endregion Functions that modify the container
 
 		#pragma region Operator Overload
-		//Operator Overloading
+		//Operator Overloading (Size Comparison Operators)
 		bool operator==(Stack<T>& s);
 		bool operator<=(Stack<T>& s);
 		bool operator>=(Stack<T>& s);
@@ -57,13 +64,13 @@ namespace Ltl
 
 	private:
 		/// <summary>Pointer to the momory(For handling memory)</summary>
-		T* body;
+		T* body = nullptr;
 
 		/// <summary>Size of the stack(Max elements the stack can hold)</summary>
-		int maxSize;
+		int maxSize = 0;
 
 		/// <summary>Current size of the stack</summary>
-		int len; 
+		int len = 0;
 	};
 	
 }

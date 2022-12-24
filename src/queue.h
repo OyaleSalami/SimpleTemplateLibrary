@@ -26,15 +26,20 @@ namespace Ltl
 		/// <returns>Number of elements in the queue</returns>
 		int size();
 
+		/// <returns>Max size of the container</returns>
+		int MaxSize();
+
 		/// <returns>True if stack is empty, false otherwise</returns>
 		bool empty();
+
+		/// <returns>Returns a pointer to the underlying memory</returns>
+		T* getPtr();
 		#pragma endregion 
 
 		#pragma region Modifier Functions
 		/// <returns></returns>
 		T pop();
 		void push(const T value);
-		void emplace(const T value);
 		void swap();
 		#pragma endregion Modify the elements of the container
 
@@ -49,12 +54,12 @@ namespace Ltl
 
 	private:
 		/// <summary>Pointer to the memory address(For handling memory)</summary>
-		T* body;
+		T* body = nullptr;
 
 		/// <summary>Size of the queue(Max elements the queue can hold)</summary>
-		int maxSize;
+		int maxSize = 0;
 
 		/// <summary>Current size of the queue</summary>
-		int len;
+		int len = 0;
 	};
 }

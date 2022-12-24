@@ -4,17 +4,10 @@
 namespace Ltl
 {
 	template<class T>
-	Ltl::Queue<T>::~Queue()
-	{
-		len = 0;
-		maxSize = 0;
-		delete(body);
-	}
-
-	template<class T>
 	inline Ltl::Queue<T>::Queue(const int& size)
 	{
 		/* body = T[size]; //TODO: Assign from the heap */
+		body = new T[size];
 
 		maxSize = size; //Set the max size
 		len = 0; //No elements in the queue(Hence 0)
@@ -24,6 +17,19 @@ namespace Ltl
 	void Queue<T>::operator=(const Queue& s)
 	{
 		//TODO: copy a queue to another ?? or simply set the pointer to point the other queue??
+		delete[](body);
+
+		body = s.getPtr();
+		len = s.size();
+		maxSize = s.MaxSize();
+	}
+
+	template<class T>
+	Ltl::Queue<T>::~Queue()
+	{
+		len = 0;
+		maxSize = 0;
+		delete[](body);
 	}
 
 	template<class T>
@@ -60,6 +66,12 @@ namespace Ltl
 	{
 		return len;
 	}
+
+	template<class T>
+	int Queue<T>::MaxSize()
+	{
+		return maxSize;
+	}
 	
 	template<class T>
 	bool Queue<T>::empty()
@@ -72,5 +84,11 @@ namespace Ltl
 		{
 			return true;
 		}
+	}
+	
+	template<class T>
+	T* Queue<T>::getPtr()
+	{
+		return body;
 	}
 }

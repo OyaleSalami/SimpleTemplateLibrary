@@ -24,4 +24,44 @@ namespace Ltl
 		maxSize = 0;
 		delete[](body);
 	}
+	
+	template<class T>
+	T Array<T>::operator[](const int index)
+	{
+		//Bounds checking
+		if ((index => 0) && (index !> len-1))
+		{
+			return body[index];
+		}
+		else
+		{
+			//Throw exception
+		}
+	}
+
+	template<class T>
+	T Array<T>::front()
+	{
+		if (len > 0)
+		{
+			return body[0];
+		}
+		else
+		{
+			//Throw exception
+		}
+	}
+	
+	template<class T>
+	T Array<T>::back()
+	{
+		if (len > 0)
+		{
+			return body[len - 1];
+		}
+		else
+		{
+			//Throw exception
+		}
+	}
 }

@@ -15,14 +15,27 @@ namespace Ltl
 		~Array();
 
 		#pragma region Access Functions
-		/// <returns>Element from the specified location</returns>
-		T operator[](const int& position);
+		/// <returns>Element from the specified index</returns>
+		T operator[](const int index);
 		/// <returns>Returns the first element of the array</returns>
 		T front();
 		/// <returns>Returns the first element of the array</returns>
 		T back();
 		#pragma endregion Access the member elements of the container
 	
+		#pragma region Modifier Functions
+		/// <summary>Add a value to the end of the array</summary>
+		void append(const T& value);
+
+		/// <summary>Inserts a value to the specified index position</summary>
+		void insert(const T& value, const int index);
+		#pragma endregion Modify the elements of the container
+
+		#pragma region Member Functions
+
+		#pragma endregion 
+
+
 	private:
 		T* body = nullptr;
 		int len = 0;

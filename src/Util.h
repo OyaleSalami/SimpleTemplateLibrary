@@ -1,4 +1,6 @@
 #pragma once
+#include "Array.h"
+#include "Queue.h"
 
 namespace Ltl
 {

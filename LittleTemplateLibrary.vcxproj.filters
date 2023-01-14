@@ -27,6 +27,9 @@
     <ClCompile Include="src\Array.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\List.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Stack.h">

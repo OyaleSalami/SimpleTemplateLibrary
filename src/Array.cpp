@@ -29,7 +29,7 @@ namespace Ltl
 	T Array<T>::operator[](const int index)
 	{
 		//Bounds checking
-		if ((index => 0) && (index !> len-1))
+		if ((index >= 0) && !(index > len-1))
 		{
 			return body[index];
 		}

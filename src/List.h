@@ -15,8 +15,7 @@ namespace Ltl
 		void push(const T value);
 
 	private:
-		template <class T>
-		struct Node
+		class Node
 		{
 		public:
 			T value; //Value of the current element
@@ -35,9 +34,7 @@ namespace Ltl
 			}
 		};
 
-		Node<T> head; //Represents the begining of the list
+		Node head; //Represents the begining of the list
 		int len = 0;
 	};
-
-	LinkedList<int> list;
 }

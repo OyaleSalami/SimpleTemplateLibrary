@@ -3,77 +3,107 @@
 
 namespace Ltl
 {
-	template<class T>
-	inline Ltl::Queue<T>::Queue(const int& size)
+
+	template <class T>
+	inline Ltl::Queue<T>::Queue(const int &size)
 	{
 		/* body = T[size]; //TODO: Assign from the heap */
 		body = new T[size];
 
-		maxSize = size; //Set the max size
-		len = 0; //No elements in the queue(Hence 0)
+		maxSize = size; // Set the max size
+		len = 0;		// No elements in the queue(Hence 0)
 	}
 
-	template<class T>
-	void Queue<T>::operator=(const Queue& s)
+	template <class T>
+	void Queue<T>::operator=(const Queue &s)
 	{
-		//TODO: copy a queue to another ?? or simply set the pointer to point the other queue??
-		delete[](body);
+		// TODO: copy a queue to another ?? or simply set the pointer to point the other queue??
+		delete[] (body);
 
 		body = s.getPtr();
 		len = s.size();
 		maxSize = s.MaxSize();
 	}
 
-	template<class T>
+	template <class T>
+	void Queue<T>::push(const T value)
+	{
+		if (len + 1 > maxSize)
+		{
+			// throw exception
+			std::cerr << "this queue is full" << std::endl;
+		}
+		else
+		{
+			body[len] = value;
+			len++;
+		}
+	}
+
+	template <class T>
+	T Queue<T>::pop()
+	{
+		if (empty())
+		{
+			// throw exception
+			std::cerr << "this queue is empty" << std::endl;
+		}
+		else
+		{
+			len--;
+		}
+	}
+
+	template <class T>
 	Ltl::Queue<T>::~Queue()
 	{
 		len = 0;
 		maxSize = 0;
-		delete[](body);
+		delete[] (body);
 	}
 
-	template<class T>
+	template <class T>
 	T Queue<T>::top()
 	{
-		//Upper bounds checking
+		// Upper bounds checking
 		if (len > 0)
 		{
-			return body[0]; //returns the first element
+			return body[0]; // returns the first element
 		}
 		else
 		{
-			//Throw an exception
+			// Throw an exception
 		}
 		return T();
 	}
 
-	template<class T>
+	template <class T>
 	T Queue<T>::bottom()
 	{
-		//Upper bounds checking
+		// Upper bounds checking
 		if (len > 0)
 		{
-			return body[len - 1]; //returns the first element
+			return body[len - 1]; // returns the first element
 		}
 		else
 		{
-			//Throw an exception
+			// Throw an exception
 		}
 	}
-	
-	template<class T>
+
+	template <class T>
 	int Queue<T>::size()
 	{
 		return len;
 	}
 
-	template<class T>
+	template <class T>
 	int Queue<T>::MaxSize()
 	{
 		return maxSize;
 	}
-	
-	template<class T>
+
+	template <class T>
 	bool Queue<T>::empty()
 	{
 		if (len > 0)
@@ -85,9 +115,9 @@ namespace Ltl
 			return true;
 		}
 	}
-	
-	template<class T>
-	T* Queue<T>::getPtr()
+
+	template <class T>
+	T *Queue<T>::getPtr()
 	{
 		return body;
 	}

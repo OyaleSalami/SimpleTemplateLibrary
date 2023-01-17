@@ -27,20 +27,20 @@ namespace Ltl
 		int size();
 
 		/// <returns>Max size of the container</returns>
-		int MaxSize();
+		int maxSize();
 
 		/// <returns>True if stack is empty, false otherwise</returns>
-		bool empty();
+		bool isEmpty();
 
 		/// <returns>Returns a pointer to the underlying memory</returns>
 		T *getPtr();
 #pragma endregion
 
 #pragma region Modifier Functions
-		/// <returns></returns>
+		/// <returns>Removes and returns the first element of the queue</returns>
 		T pop();
+		/// <summary>Appends an element to the end of the queue</summary>
 		void push(const T value);
-		void swap();
 #pragma endregion Modify the elements of the container
 
 #pragma region Operator Overload
@@ -57,7 +57,7 @@ namespace Ltl
 		T *body = nullptr;
 
 		/// <summary>Size of the queue(Max elements the queue can hold)</summary>
-		int maxSize = 0;
+		int max = 0;
 
 		/// <summary>Current size of the queue</summary>
 		int len = 0;

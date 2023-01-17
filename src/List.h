@@ -3,56 +3,54 @@
 namespace Ltl
 {
 	template <class T>
-	class List
+	class LinkedList
 	{
 	public:
-		//Constructor
-		List<T>(){}
-		List<T>(const int& size);
-		void operator=(const List<T>& s);
+		/// <summary>Default Constructor</summary>
+		LinkedList();
 
-		//Destructor
-		~List();
-
-		#pragma region Access Functions
-		/// <returns>The first element in the list</returns>
-		T front();
-		/// <returns>The last element in the list</returns>
-		T back();
-		#pragma endregion Functions for accessing the elements of the container
-
-		#pragma region Member Functions
-		/// <returns>The size of the container</returns>
+		/// <summary>Returns the size of the Linked List</summary>
 		int size();
-		/// <returns>True if the container is empty, false otherwise</returns>
-		bool empty();
-		#pragma endregion 
+		/// <summary>Returns true is the list is empty</summary>
+		bool isEmpty();
 
-		#pragma region Modifier Functions
-		void insert(const T& value, const int& position);
-		void clear();
-		void resize(const int& size);
-		void swap();
-		void emplace_back(const T& value);
-		void emplace_front(const T& value);
-		void push_back(const T& value);
-		void push_front(const T& value);
-		void pop_back();
-		void pop_front();
-		#pragma endregion Modifies the container elements
-		
-		#pragma region Operations
-		List<T> merge(List<T> s);
-		void sort();
-		#pragma endregion Operations on the container class
+		/// <summary>Adds an element to the end of the list</summary>
+		void push(const T& value);
 
-		#pragma region Operator Overload
-		bool operator==(List<T>& s);
-		bool operator<=(List<T>& s);
-		bool operator>=(List<T>& s);
-		bool operator<(List<T>& s);
-		bool operator>(List<T>& s);
-		bool operator!=(List<T>& s);
-		#pragma endregion Overloading Functions
+	private:
+		/// <summary>Represents a node in the list</summary>
+		class Node
+		{
+		public:
+			/// <summary>Value of the current element</summary>
+			T value;
+			/// <summary>A pointer to the previous element</summary>
+			Node* prev;
+			/// <summary>A pointer to the next element</summary>
+			Node* next;
+
+			Node() 
+			{
+				prev = nullptr;
+				next = nullptr;
+			}
+
+			/// <summary>Creates a new node item</summary>
+			/// <param name="_value">Value to store in the node</param>
+			/// <param name="_prev">Pointer to the previous element</param>
+			/// <param name="_next">Pointer to the next element or back to the head</param>
+			Node(const T _value, Node* _prev, Node* _next)
+			{
+				value = _value;
+				prev = _prev;
+				next = _next;
+			}
+		};
+
+		/// <summary>Represents the begining of the list</summary>
+		Node head; 
+
+		/// <summary>Number of elements currently on the list</summary>
+		int len = 0;
 	};
 }

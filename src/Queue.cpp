@@ -3,21 +3,28 @@
 
 namespace Ltl
 {
+	template <class T>
+	inline Queue<T>::Queue(const int &size)
+	{
+		body = new T[size]; //Assign from the heap
+
+		max = size; // Set the max size
+		len = 0;		// No elements in the queue yet(Hence 0)
+	}
 
 	template <class T>
-	inline Ltl::Queue<T>::Queue(const int &size)
+	inline Queue<T>::~Queue()
 	{
-		/* body = T[size]; //TODO: Assign from the heap */
-		body = new T[size];
-
-		maxSize = size; // Set the max size
-		len = 0;		// No elements in the queue(Hence 0)
+		len = 0;
+		max = 0;
+		delete[](body);
 	}
 
 	template <class T>
 	void Queue<T>::operator=(const Queue &s)
 	{
-		// TODO: copy a queue to another ?? or simply set the pointer to point the other queue??
+		//Copy a queue to another or 
+		//Simply set the pointer to point the other queue ...
 		delete[] (body);
 
 		body = s.getPtr();
@@ -28,7 +35,7 @@ namespace Ltl
 	template <class T>
 	void Queue<T>::push(const T value)
 	{
-		if (len + 1 > maxSize)
+		if (len + 1 > max)
 		{
 			// throw exception
 			//std::cerr << "this queue is full" << std::endl;
@@ -43,7 +50,7 @@ namespace Ltl
 	template <class T>
 	T Queue<T>::pop()
 	{
-		if (empty())
+		if (isEmpty())
 		{
 			// throw exception
 			//std::cerr << "this queue is empty" << std::endl;
@@ -53,14 +60,6 @@ namespace Ltl
 			return body[len];
 			len--;
 		}
-	}
-
-	template <class T>
-	Ltl::Queue<T>::~Queue()
-	{
-		len = 0;
-		maxSize = 0;
-		delete[] (body);
 	}
 
 	template <class T>
@@ -99,13 +98,13 @@ namespace Ltl
 	}
 
 	template <class T>
-	int Queue<T>::MaxSize()
+	int Queue<T>::maxSize()
 	{
-		return maxSize;
+		return max;
 	}
 
 	template <class T>
-	bool Queue<T>::empty()
+	bool Queue<T>::isEmpty()
 	{
 		if (len > 0)
 		{

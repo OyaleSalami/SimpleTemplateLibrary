@@ -64,4 +64,24 @@ namespace Ltl
 			//Throw exception
 		}
 	}
+
+	template<class T>
+	void Array<T>::append(const T& value)
+	{
+		if (len+1 > maxSize)
+		{
+			//Throw exception
+		}
+		else
+		{
+			body[len] = value;
+			len++;
+		}
+	}
+
+	template<class T>
+	int Array<T>::size()
+	{
+		return len;
+	}
 }

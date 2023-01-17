@@ -32,7 +32,8 @@ namespace Ltl
 		#pragma endregion Modify the elements of the container
 
 		#pragma region Member Functions
-
+		/// <summary>Returns the size of the array</summary>
+		int size();
 		#pragma endregion 
 
 

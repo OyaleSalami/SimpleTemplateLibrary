@@ -1,7 +1,11 @@
 #include <iostream>
 #include <stdlib.h>
 #include "Queue.cpp"
+#include "List.cpp"
 #include "Stack.cpp"
+#include "Util.h"
+#include "Array.cpp"
+
 
 #ifdef _WIN32
 #define clear() system("cls")
@@ -20,6 +24,8 @@ int main()
 {
 	Ltl::Queue<int> q(30);
 	Ltl::Stack<int> s(30);
+	Ltl::Array<int> a(30);
+	Ltl::LinkedList<int> l;
 
 	// A while loop to repeat the menu
 	while (true)
@@ -33,7 +39,8 @@ int main()
 		std::cout << "2. Queue" << std::endl;
 		std::cout << "3. Stack" << std::endl;
 		std::cout << "4. Array" << std::endl;
-		std::cout << "6. Tree" << std::endl;
+		std::cout << "5. Tree" << std::endl;
+		std::cout << "6. Linear Search" << std::endl;
 		std::cout << "0. Exit" << std::endl;
 
 		// Selecting an input
@@ -105,7 +112,7 @@ int main()
 			}
 			else if (option == "2")//Empty
 			{
-				if (q.empty())
+				if (q.isEmpty())
 				{
 					std::cout << "The Queue is empty" << std::endl;
 				}
@@ -177,10 +184,57 @@ int main()
 				std::cerr << "Error, Invalid Selection" << std::endl;
 			}
 		}
+		else if (input == "4")
+		{
+			clear();
+			std::cout << "Array" << std::endl;
+			std::cout << "1. Size" << std::endl;
+			std::cout << "2. Append" << std::endl;
+
+			std::string option;
+			std::cin >> option;
+
+			if (option == "1")//Size
+			{
+				std::cout << "The number of elements in our stack is: " << a.size() << std::endl;
+			}
+			else if (option == "2")//Append
+			{
+				int elementToAdd;
+				std::cout << "Element to add: ";
+				std::cin >> elementToAdd;
+
+				a.append(elementToAdd);
+				std::cout << elementToAdd << " was added to our array" << std::endl;
+			}
+			else
+			{
+				std::cerr << "Error ... \nEnter a correct Input String\n\n";
+			}
+		}
+		else if (input == "6")
+		{
+			clear();
+			std::cout << "Linear Search " << std::endl;
+
+			int elementToSearch;
+			std::cout << "Element to search: ";
+			std::cin >> elementToSearch;
+
+			if (Ltl::LinearSearch(a, elementToSearch) == -1)
+			{
+				std::cout << "Element not found" << std::endl;
+			}
+			else
+			{
+				std::cout << "Index of the search: " << Ltl::LinearSearch(a, elementToSearch) << std::endl;
+			}
+		}
 		else
 		{
 			std::cerr << "Error ... \nEnter a correct Input String\n\n";
 		}
 		pause();
 	}
+	return 0;
 }

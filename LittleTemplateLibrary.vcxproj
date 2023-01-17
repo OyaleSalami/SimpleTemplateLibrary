@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Array.cpp" />
+    <ClCompile Include="src\List.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Queue.cpp" />
     <ClCompile Include="src\Stack.cpp" />

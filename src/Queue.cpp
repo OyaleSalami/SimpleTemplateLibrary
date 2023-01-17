@@ -31,7 +31,7 @@ namespace Ltl
 		if (len + 1 > maxSize)
 		{
 			// throw exception
-			std::cerr << "this queue is full" << std::endl;
+			//std::cerr << "this queue is full" << std::endl;
 		}
 		else
 		{
@@ -46,10 +46,11 @@ namespace Ltl
 		if (empty())
 		{
 			// throw exception
-			std::cerr << "this queue is empty" << std::endl;
+			//std::cerr << "this queue is empty" << std::endl;
 		}
 		else
 		{
+			return body[len];
 			len--;
 		}
 	}

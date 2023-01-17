@@ -1,7 +1,7 @@
 #include <iostream>
+#include <stdlib.h>
 #include "Queue.cpp"
 #include "Stack.cpp"
-#include <stdlib.h>
 
 #ifdef _WIN32
 #define clear() system("cls")
@@ -12,7 +12,7 @@
 void pause()
 {
 	getchar();
-	std::cout << "press any key to continue";
+	std::cout << "\nPress any key to continue" << std::endl;
 	getchar();
 }
 
@@ -50,63 +50,47 @@ int main()
 		if (input == "1") // Lists
 		{
 			clear();
-
-			// Write Something about lists
-			std::cout << "List\n"
-					  << std::endl;
-
+			std::cout << "List"<< std::endl;
 			std::cout << "1. Size" << std::endl;
 			std::cout << "2. Empty" << std::endl;
 			std::cout << "3. Push" << std::endl;
-			std::cout << "4. Print" << std::endl;
 
 			std::string option;
 			std::cin >> option;
 
-			if (option == "1")
+			if (option == "1") //Size
 			{
-				// TODO: Check the size of our list
-				std::cout << "\nThe number of elements in our stack is: " << s.MaxSize() << std::endl;
-
-				pause();
+				std::cout << "The number of elements in our stack is: " << s.size() << std::endl;
 			}
-			else if (option == "2")
+			else if (option == "2") //Empty
 			{
-				// TODO: Check if list is empty
-				std::cout << "\nThe List is empty" << std::endl;
-				s.empty();
-				pause();
+				if (s.empty())
+				{
+					std::cout << "The List is empty" << std::endl;
+				}
+				else
+				{
+					std::cout << "The List is not empty" << std::endl;
+				}
 			}
-			else if (option == "3")
+			else if (option == "3") //Push
 			{
-				// TODO: Add an element to our list
 				int elementToAdd;
-				// TODO: Add an element to our queue
-				std::cout << "Integer to add: ";
+				std::cout << "Element to add: ";
 				std::cin >> elementToAdd;
 
 				s.push(elementToAdd);
 				std::cout << elementToAdd << " was added to your list" << std::endl;
-				pause();
-			}
-			else if (option == "4")
-			{
-				// TODO: Print all the elements in our list
 			}
 			else
 			{
-				// TODO: Error... Invalid Selection
-				std::cout << "Error, Invalid Selection" << std::endl;
+				std::cerr << "Error, Invalid Selection" << std::endl;
 			}
 		}
 		else if (input == "2") // Queue
 		{
 			clear();
-
-			// Write Something about queue
-			std::cout << "Queue\n"
-					  << std::endl;
-
+			std::cout << "Queue"<< std::endl;
 			std::cout << "1. Size" << std::endl;
 			std::cout << "2. Empty" << std::endl;
 			std::cout << "3. Push" << std::endl;
@@ -115,99 +99,88 @@ int main()
 			std::string option;
 			std::cin >> option;
 
-			if (option == "1")
+			if (option == "1")//Size
 			{
-				// TODO: Check the size of our queue
-				std::cout << "\nThe number of elements in our queue is: " << q.MaxSize() << std::endl;
-
-				pause();
+				std::cout << "The number of elements in our queue is: " << q.size() << std::endl;
 			}
-			else if (option == "2")
+			else if (option == "2")//Empty
 			{
-				// TODO: Check if queue is empty
-				std::cout << "\nThe Queue is empty" << std::endl;
-				q.empty();
-				pause();
+				if (q.empty())
+				{
+					std::cout << "The Queue is empty" << std::endl;
+				}
+				else
+				{
+					std::cout << "The Queue is empty" << std::endl;
+				}
 			}
-			else if (option == "3")
+			else if (option == "3")//Push
 			{
 				int elementToAdd;
-				// TODO: Add an element to our queue
-				std::cout << "Integer to add: ";
+				std::cout << "Element to add: ";
 				std::cin >> elementToAdd;
 
 				q.push(elementToAdd);
 				std::cout << elementToAdd << " was added to your queue" << std::endl;
-				pause();
 			}
-			else if (option == "4")
+			else if (option == "4")//Pop
 			{
-				// TODO: Remove an element from our queue
 				std::cout << q.pop() << " was removed from your queue" << std::endl;
-				pause();
-			}
-			else if (option == "5")
-			{
-				// TODO: Print all the elements in our list
 			}
 			else
 			{
-				// TODO: Error... Invalid Selection
-				std::cout << "Error, Invalid Selection" << std::endl;
+				std::cerr << "Error, Invalid Selection" << std::endl;
 			}
 		}
 		else if (input == "3") // Stack
 		{
 			clear();
-
-			// Write Something about stack
-			std::cout << "Stack\n"
-					  << std::endl;
-
+			std::cout << "Stack "<< std::endl;
 			std::cout << "1. Size" << std::endl;
 			std::cout << "2. Empty" << std::endl;
 			std::cout << "3. Push" << std::endl;
 			std::cout << "4. Pop" << std::endl;
-			std::cout << "5. Print" << std::endl;
 
 			std::string option;
 			std::cin >> option;
 
-			if (option == "1")
+			if (option == "1")//Size
 			{
-				// TODO: Check the size of our queue
-				std::cout << "\nThe number of elements in our stack is: ";
+				std::cout << "The number of elements in our stack is: " << s.size() << std::endl;
 			}
-			else if (option == "2")
+			else if (option == "2")//Empty
 			{
-				// TODO: Check if stack is empty
-				std::cout << "\nThe Stack is empty: ";
+				if (s.empty())
+				{
+					std::cout << "The Stack is empty: ";
+				}
+				else
+				{
+					std::cout << "The Stack is not empty: ";
+				}
 			}
-			else if (option == "3")
+			else if (option == "3")//Push
 			{
-				// TODO: Add an element to our stack
-				std::cout << "An element was added to our stack" << std::endl;
+				int elementToAdd;
+				std::cout << "Element to add: ";
+				std::cin >> elementToAdd;
+
+				s.push(elementToAdd);
+				std::cout << elementToAdd << "An element was added to our stack" << std::endl;
 			}
-			else if (option == "3")
+			else if (option == "4")//Pop
 			{
-				// TODO: Remove an element from our stack
-				std::cout << "An element was removed from our stcak" << std::endl;
-			}
-			else if (option == "5")
-			{
-				// TODO: Print all the elements in our stack
+				std::cout << s.pop() << " was removed from our stack" << std::endl;
 			}
 			else
 			{
-				// TODO: Error... Invalid Selection
-				std::cout << "Error, Invalid Selection" << std::endl;
+				std::cerr << "Error, Invalid Selection" << std::endl;
 			}
-
-			getchar();
 		}
 		else
 		{
-			std::cout << "Error ... \nEnter a correct Input String\n\n";
+			std::cerr << "Error ... \nEnter a correct Input String\n\n";
 		}
+		pause();
 	}
 }

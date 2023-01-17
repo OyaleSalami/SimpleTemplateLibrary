@@ -35,6 +35,9 @@ namespace Ltl
 		/// <returns>True if the stack is empty, false otherwise</returns>
 		bool empty();
 
+		/// <summary>Prints all the elements in the Stack</summary>
+		void print();
+
 		/// <returns>A pointer to the underlying memory location</returns>
 		T* getPtr();
 		#pragma endregion 

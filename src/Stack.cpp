@@ -124,6 +124,16 @@ namespace Ltl
 	}
 
 	template<class T>
+	void Stack<T>::print()
+	{
+		for (int i = 0; i < len-1; i++)
+		{
+
+			body[len];
+		}
+	}
+
+	template<class T>
 	void Stack<T>::swap(const int id1, const int id2)
 	{
 		//Bounds Checking

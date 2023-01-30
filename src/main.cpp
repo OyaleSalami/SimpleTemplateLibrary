@@ -8,10 +8,10 @@
 
 int main()
 {
-	Ltl::Queue<int> q(30);
-	Ltl::Stack<int> s(30);
-	Ltl::Array<int> a(30);
-	Ltl::LinkedList<int> l;
+	Stl::Queue<int> q(30);
+	Stl::Stack<int> s(30);
+	Stl::Array<int> a(30);
+	Stl::LinkedList<int> l;
 
 	// A while loop to repeat the menu
 	while (true)
@@ -207,13 +207,13 @@ int main()
 			std::cout << "Element to search: ";
 			std::cin >> elementToSearch;
 
-			if (Ltl::LinearSearch(a, elementToSearch) == -1)
+			if (Stl::LinearSearch(a, elementToSearch) == -1)
 			{
 				std::cout << "Element not found" << std::endl;
 			}
 			else
 			{
-				std::cout << "Index of the search: " << Ltl::LinearSearch(a, elementToSearch) << std::endl;
+				std::cout << "Index of the search: " << Stl::LinearSearch(a, elementToSearch) << std::endl;
 			}
 		}
 		else

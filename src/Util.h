@@ -16,10 +16,10 @@ void pause()
 #include "Array.h"
 
 
-namespace Ltl
+namespace Stl
 {
 	template<class T>
-	int LinearSearch(Ltl::Array<T> art, const int& value)
+	int LinearSearch(Stl::Array<T> art, const int& value)
 	{
 		for (int i = 0; i < art.size(); i++)
 		{
@@ -31,7 +31,7 @@ namespace Ltl
 	}
 
 	template<class T>
-	int BinarySearch(Ltl::Array<T> art, const int& value)
+	int BinarySearch(Stl::Array<T> art, const int& value)
 	{
 		for (int i = 0; i < art.size(); i++)
 		{

@@ -24,6 +24,7 @@
     <ProjectGuid>{89888373-c6f0-4bf5-82f3-9fae91967779}</ProjectGuid>
     <RootNamespace>LittleTemplateLibrary</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>SimpleTemplateLibrary</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

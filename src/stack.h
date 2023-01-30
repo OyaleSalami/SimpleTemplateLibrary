@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Ltl
+namespace Stl
 {
 	//Stack: LIFO(Last In First Out)
 	/// <typeparam name="T">Type of the container</typeparam>

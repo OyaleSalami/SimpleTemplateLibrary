@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Ltl
+namespace Stl
 {
 	template <class T>
 	class LinkedList

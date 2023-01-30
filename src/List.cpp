@@ -1,6 +1,6 @@
 #include "List.h"
 
-namespace Ltl
+namespace Stl
 {
 	template<class T>
 	inline LinkedList<T>::LinkedList()

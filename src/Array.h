@@ -34,7 +34,7 @@ namespace Stl
 
 		#pragma region Access Functions
 		/// <returns>Element from the specified index</returns>
-		T operator[](const int index)
+		T operator[](const int& index)
 		{
 			//Bounds checking
 			if ((index >= 0) && !(index > len - 1))

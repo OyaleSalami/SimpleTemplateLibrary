@@ -8,6 +8,7 @@
 
 int main()
 {
+
 	Stl::Queue<int> q(30);
 	Stl::Stack<int> s(30);
 	Stl::Array<int> a(30);
@@ -36,7 +37,9 @@ int main()
 
 		if (input == "0") // Exit
 		{
-			std::cout << "\nExiting the Little Template Library" << std::endl;
+			std::cerr << "Error, you are exiting, Why????" << std::endl;
+			pause();
+			std::cout << "\nExiting the Simple Template Library" << std::endl;
 			pause();
 			break;
 		}

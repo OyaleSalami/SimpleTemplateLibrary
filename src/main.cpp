@@ -1,24 +1,10 @@
 #include <iostream>
 #include <stdlib.h>
-#include "Queue.cpp"
+#include "Queue.h"
 #include "List.cpp"
-#include "Stack.cpp"
+#include "Stack.h"
 #include "Util.h"
-#include "Array.cpp"
-
-
-#ifdef _WIN32
-#define clear() system("cls")
-#else
-#define clear() system("clear")
-#endif
-
-void pause()
-{
-	getchar();
-	std::cout << "\nPress any key to continue" << std::endl;
-	getchar();
-}
+#include "Array.h"
 
 int main()
 {

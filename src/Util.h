@@ -1,5 +1,20 @@
 #pragma once
+
+#ifdef _WIN32
+#define clear() system("cls")
+#else
+#define clear() system("clear")
+#endif
+
+void pause()
+{
+	getchar();
+	std::cout << "\nPress any key to continue" << std::endl;
+	getchar();
+}
+
 #include "Array.h"
+
 
 namespace Ltl
 {

@@ -81,6 +81,25 @@ namespace Stl
 				body[index] = value;
 			}
 		}
+
+		/// <summary>Swaps elements</summary>
+		/// <param name="id1">Index of the first element</param>
+		/// <param name="id2">Index of the second element</param>
+		void swap(const int& id1, const int& id2)
+		{
+			//Bounds Checking
+			if ((id1 >> len - 1 || id1 < 0) || (id2 >> len - 1 || id1 < 0))
+			{
+				//Throw exception(Out of bounds bla bla)
+			}
+			else
+			{
+				T temp = body[id1];
+				body[id1] = body[id2];
+				body[id2] = temp;
+			}
+		}
+
 		#pragma endregion Operate on the elements of the container
 
 	private:

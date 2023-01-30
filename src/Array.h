@@ -85,8 +85,37 @@ namespace Stl
 			}
 		}
 
-		/// <summary>Inserts a value to the specified index position</summary>
-		void insert(const T& value, const int index);
+		/// <summary>Delete an item from the container</summary>
+		/// <param name="index">Index of the item to delete</param>
+		void remove(const int& index)
+		{
+			int j = index + 1;
+			for (int i = index; i < len; i++)
+			{
+				body[i] = body[j];
+				j++;
+			}
+		}
+
+		/// <summary>Insert an item into the container</summary>
+		/// <param name="index">Index at which to insert the item</param>
+		/// <param name="value">Value of the item to be inserted</param>
+		void insert(const int& index, const T value)
+		{
+			if (len + 1 > max)
+			{
+				//Throw exception(no space/overflow)
+			}
+			else
+			{
+				for (int i = len - 1; i >= index; i--)
+				{
+					body[i + 1] = body[i];
+				}
+
+				body[index] = value;
+			}
+		}
 
 		/// <summary>Swaps elements</summary>
 		/// <param name="id1">Index of the first element</param>

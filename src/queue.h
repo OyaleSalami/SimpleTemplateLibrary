@@ -1,56 +1,128 @@
 #pragma once
 
-namespace Ltl
+namespace Stl
 {
 	template <class T>
 	class Queue
 	{
 	public:
-		// Constructors
+		#pragma region Constructor
 		Queue() {}
-		Queue(const int &size);
-		void operator=(const Queue &s);
 
-		// Destructors
-		~Queue();
+		Queue(const int& size)
+		{
+			body = new T[size]; //Assign from the heap
 
-#pragma region Access Functions
+			max = size;		// Set the max size
+			len = 0;		// No elements in the queue yet(Hence 0)
+		}
+
+		void operator=(const Queue& s)
+		{
+			//Simply set the pointer to point the other queue ...
+			delete[](body);
+
+			body = s.body;
+			len = s.len;
+			max = s.max;
+		}
+		#pragma endregion Called when the container is created/reassigned
+
+		#pragma region Destructor
+		~Queue()
+		{
+			len = 0;
+			max = 0;
+			delete[](body);
+		}
+		#pragma endregion Called when the container is deleted
+
+		#pragma region Access Functions
 		/// <returns>First element in the stack</returns>
-		T top();
+		T top()
+		{
+			// Upper bounds checking
+			if (len > 0)
+			{
+				return body[0]; // returns the first element
+			}
+			else
+			{
+				// Throw an exception
+			}
+			return T();
+		}
 
 		/// <returns>Last element in the stack</returns>
-		T bottom();
-#pragma endregion Accesss the elements of the container class
+		T bottom()
+		{
+			// Upper bounds checking
+			if (len > 0)
+			{
+				return body[len - 1]; // returns the first element
+			}
+			else
+			{
+				// Throw an exception
+			}
+		}
+		#pragma endregion Accesss the elements of the container class
 
-#pragma region Member Functions
+		#pragma region Member Functions
 		/// <returns>Number of elements in the queue</returns>
-		int size();
-
-		/// <returns>Max size of the container</returns>
-		int maxSize();
+		int size()
+		{
+			return len;
+		}
 
 		/// <returns>True if stack is empty, false otherwise</returns>
-		bool isEmpty();
+		bool isEmpty()
+		{
+			if (len > 0)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
 
 		/// <returns>Returns a pointer to the underlying memory</returns>
 		T *getPtr();
-#pragma endregion
+		#pragma endregion Details about the container
 
-#pragma region Modifier Functions
-		/// <returns>Removes and returns the first element of the queue</returns>
-		T pop();
+		#pragma region Modifier Functions
 		/// <summary>Appends an element to the end of the queue</summary>
-		void push(const T value);
-#pragma endregion Modify the elements of the container
+		void push(const T value)
+		{
+			if (len + 1 > max)
+			{
+				// throw exception (Overflow)
+				//std::cerr << "this queue is full" << std::endl;
+			}
+			else
+			{
+				body[len] = value;
+				len++;
+			}
+		}
 
-#pragma region Operator Overload
-		bool operator==(Queue<T> &s);
-		bool operator<=(Queue<T> &s);
-		bool operator>=(Queue<T> &s);
-		bool operator<(Queue<T> &s);
-		bool operator>(Queue<T> &s);
-		bool operator!=(Queue<T> &s);
-#pragma endregion Overloading Functions
+		/// <returns>Removes and returns the first element of the queue</returns>
+		T pop()
+		{
+			if (isEmpty())
+			{
+				// throw exception (Underflow)
+				//std::cerr << "this queue is empty" << std::endl;
+			}
+			else
+			{
+				return body[len];
+				len--;
+			}
+		}
+		#pragma endregion Modify the elements of the container
 
 	private:
 		/// <summary>Pointer to the memory address(For handling memory)</summary>
